@@ -421,13 +421,13 @@ public class Patient extends Person{
                 personDirectory.personList.add(patient);
                 ArrayList<Encounter> encounterHistoryl = new ArrayList<>();
                 if(i%2 == 0){
-                    System.out.println("if i"+i);
+                    
                     community.setCommunityName("A");
                     house.setHouseNumber(i+1);
                     house.setZipcode("02215");
                     house.setStreetName("Park drive");
                 }else{
-                    System.out.println("else i"+i);
+                    
                     community.setCommunityName("B");
                     house.setHouseNumber(i+1);
                     house.setZipcode("02130");
@@ -440,7 +440,7 @@ public class Patient extends Person{
                 patientDirectory.patientList.add(patient);
                 house.setPatient(patient);
                 community.getHouseList().add(house);
-                //community.houseList.add(house);
+                
                 city.communityList.add(community);
                 fullSystem.setCity(city);
                 
