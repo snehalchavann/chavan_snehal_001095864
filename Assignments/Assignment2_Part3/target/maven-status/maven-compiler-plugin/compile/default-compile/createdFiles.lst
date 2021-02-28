@@ -1,0 +1,8 @@
+model/Person.class
+model/Encounter.class
+model/MainCall.class
+model/FullSystem.class
+model/PersonDirectory.class
+model/Patient.class
+model/VitalSigns.class
+model/PatientDirectory.class
