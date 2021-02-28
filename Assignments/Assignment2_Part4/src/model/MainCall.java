@@ -259,6 +259,7 @@ public class MainCall {
                        
             case 9:
                 community.getAbnormalCount();
+                System.out.println("Data created successfully");
                 break;
                 
             case 10:
