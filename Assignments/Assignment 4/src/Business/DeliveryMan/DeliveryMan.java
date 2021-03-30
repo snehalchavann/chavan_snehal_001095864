@@ -5,10 +5,25 @@
  */
 package Business.DeliveryMan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class DeliveryMan {
+    String name;
+    ArrayList<String> order;
     
+    public DeliveryMan(){
+        order = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

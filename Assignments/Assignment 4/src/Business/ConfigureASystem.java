@@ -1,9 +1,14 @@
 package Business;
 
 import Business.Employee.Employee;
+import Business.Restaurant.Restaurant;
 import Business.Role.AdminRole;
+import Business.Role.CustomerRole;
+import Business.Role.DeliverManRole;
+import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,12 +27,18 @@ public class ConfigureASystem {
         //create user account
         
         
-        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
-        Employee employee1 = system.getEmployeeDirectory().createEmployee("John");
         
+        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+        Employee employeeAdmin = system.getEmployeeDirectory().createEmployee("John");
+        Employee employeeDeliver = system.getEmployeeDirectory().createEmployee("Sam");
+        Employee employeeCustomer = system.getEmployeeDirectory().createEmployee("Tom");
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        UserAccount ua1 = system.getUserAccountDirectory().createUserAccount("admin", "admin", employee1, new AdminRole());
-        System.out.println("new user"+ua1.getUsername());
+        
+        UserAccount ua1 = system.getUserAccountDirectory().createUserAccount("admin", "admin", employeeAdmin, new AdminRole());
+        UserAccount ua2 = system.getUserAccountDirectory().createUserAccount("deliveryman", "deliveryman", employeeDeliver, new DeliverManRole());
+        UserAccount ua3 = system.getUserAccountDirectory().createUserAccount("customer", "customer", employeeCustomer, new CustomerRole());
+        Restaurant restaurant1 = system.getRestaurantDirectory().createRestaurant("Mumbai spice",ua1);
+        Restaurant restaurant2 = system.getRestaurantDirectory().createRestaurant("Honest",ua1);
         
         return system;
     }

@@ -36,6 +36,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        System.out.println("emp:"+system.getEmployeeDirectory().getEmployeeList().size());
+        
         this.setSize(1680, 1050);
     }
 
@@ -139,33 +141,42 @@ public class MainJFrame extends javax.swing.JFrame {
         if(authenticateUser == null){
             JOptionPane.showMessageDialog(null, "Invalid username or password");
         }else{
-            SystemAdminWorkAreaJPanel sysAdmin = new SystemAdminWorkAreaJPanel(container, system);
-                    jSplitPane1.setRightComponent(sysAdmin);
-            Role role = authenticateUser.getRole();
+//            SystemAdminWorkAreaJPanel sysAdmin = new SystemAdminWorkAreaJPanel(container, system);
+//                    jSplitPane1.setRightComponent(sysAdmin);
+//            String role = authenticateUser.getRole().rtype.getValue();
+//            String value = role.RoleType.value;
+            RoleType rolet = null ;
+            RoleType[] values = RoleType.values();
+            Role value1 = authenticateUser.getRole();
+            String val = value1.toString();
+            System.out.println("val:....."+value1);
             
-            RoleType rolet = null;
+            CardLayout layout=(CardLayout)container.getLayout();
+            container.add("workArea",authenticateUser.getRole().createWorkArea(container, authenticateUser, system));
+            layout.next(container);
             
-            
-            String value = rolet.getValue();
-            System.out.println("role"+rolet);
-            switch(value){
-                case "Sysadmin":
-                    SystemAdminWorkAreaJPanel sysAdmin1 = new SystemAdminWorkAreaJPanel(container, system);
-                    jSplitPane1.setRightComponent(sysAdmin);
-                    break;
-                case "RestaurantAdmin":
-                    AdminWorkAreaJPanel admin = new AdminWorkAreaJPanel(container);
-                    jSplitPane1.setRightComponent(admin);
-                    break;
-                case "Customer":
-                    CustomerAreaJPanel customer = new CustomerAreaJPanel(container, authenticateUser);
-                    jSplitPane1.setRightComponent(customer);
-                    break;
-                case "Delivery":
-                    DeliveryManWorkAreaJPanel deliveryMan = new DeliveryManWorkAreaJPanel(container, authenticateUser, system);
-                    jSplitPane1.setRightComponent(deliveryMan);
-                    break;
-            }
+//            String value = RoleType.SysAdmin.getValue();
+////            String role = authenticateUser.getRole().RoleType.value;
+////            String value = rolet.getValue();
+//            System.out.println("role"+Arrays.toString(values));
+//            switch(val){
+//                case "Business.Role.SystemAdminRole":
+//                    SystemAdminWorkAreaJPanel sysAdmin1 = new SystemAdminWorkAreaJPanel(container, system);
+//                    jSplitPane1.setRightComponent(sysAdmin1);
+//                    break;
+//                case "Business.Role.AdminRole":
+//                    AdminWorkAreaJPanel admin = new AdminWorkAreaJPanel(container);
+//                    jSplitPane1.setRightComponent(admin);
+//                    break;
+//                case "Business.Role.CustomerRole":
+//                    CustomerAreaJPanel customer = new CustomerAreaJPanel(container, authenticateUser);
+//                    jSplitPane1.setRightComponent(customer);
+//                    break;
+//                case "Business.Role.DeliverManRole":
+//                    DeliveryManWorkAreaJPanel deliveryMan = new DeliveryManWorkAreaJPanel(container, authenticateUser, system);
+//                    jSplitPane1.setRightComponent(deliveryMan);
+//                    break;
+//            }
             
             logoutJButton.setEnabled(true);
             loginJButton.setEnabled(false);

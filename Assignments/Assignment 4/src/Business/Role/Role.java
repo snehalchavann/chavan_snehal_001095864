@@ -16,13 +16,14 @@ import javax.swing.JPanel;
  */
 public abstract class Role {
     
+   
     public enum RoleType{
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");
         
-        private String value;
+        public String value;
         private RoleType(String value){
             this.value = value;
         }
@@ -44,6 +45,8 @@ public abstract class Role {
     @Override
     public String toString() {
         return this.getClass().getName();
+        
+        
     }
     
     

@@ -4,7 +4,10 @@
  */
 package Business;
 
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
@@ -22,6 +25,9 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter=0;
+    private RestaurantDirectory restaurantDirectory;
+    private CustomerDirectory customerDirectory;
+    private DeliveryManDirectory deliveryManDirectory;
     
     public enum Type{
         RestaurantAdmin("RestaurantAdmin"),
@@ -43,8 +49,12 @@ public abstract class Organization {
         workQueue = new WorkQueue();
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
+        restaurantDirectory = new RestaurantDirectory();
         organizationID = counter;
         ++counter;
+        
+        customerDirectory = new CustomerDirectory();
+        deliveryManDirectory = new DeliveryManDirectory();
     }
     public Organization(){
         
@@ -57,6 +67,10 @@ public abstract class Organization {
 
     public int getOrganizationID() {
         return organizationID;
+    }
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        return restaurantDirectory;
     }
 
     public EmployeeDirectory getEmployeeDirectory() {
