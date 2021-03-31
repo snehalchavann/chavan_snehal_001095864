@@ -69,6 +69,14 @@ public abstract class Organization {
         return organizationID;
     }
 
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
     public RestaurantDirectory getRestaurantDirectory() {
         return restaurantDirectory;
     }

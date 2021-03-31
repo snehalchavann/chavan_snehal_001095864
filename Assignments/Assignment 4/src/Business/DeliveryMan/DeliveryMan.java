@@ -17,6 +17,7 @@ public class DeliveryMan {
     
     public DeliveryMan(){
         order = new ArrayList<>();
+        
     }
 
     public String getName() {

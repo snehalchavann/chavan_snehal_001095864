@@ -35,6 +35,7 @@ public class ConfigureASystem {
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
         
         UserAccount ua1 = system.getUserAccountDirectory().createUserAccount("admin", "admin", employeeAdmin, new AdminRole());
+        system.getDeliveryManDirectory().createDeliveryMan("Sam");
         UserAccount ua2 = system.getUserAccountDirectory().createUserAccount("deliveryman", "deliveryman", employeeDeliver, new DeliverManRole());
         UserAccount ua3 = system.getUserAccountDirectory().createUserAccount("customer", "customer", employeeCustomer, new CustomerRole());
         Restaurant restaurant1 = system.getRestaurantDirectory().createRestaurant("Mumbai spice",ua1);

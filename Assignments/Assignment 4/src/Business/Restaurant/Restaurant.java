@@ -8,6 +8,7 @@ package Business.Restaurant;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -16,10 +17,27 @@ import java.util.ArrayList;
 public class Restaurant {
     String name;
     UserAccount manager;
-    ArrayList<String> menu;
+    HashMap<String, String> menu;
+//    ArrayList<String> menu;
+
+    public HashMap<String, String> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(HashMap<String, String> menu) {
+        this.menu = menu;
+    }
     
     public Restaurant(UserAccount manager){
-        menu = new ArrayList<>();
+        menu = new HashMap<String, String>();
+        this.manager = manager;
+    }
+    
+    public void setMenuItem(String name,String price){
+        menu.put(name, price);
+    }
+
+    public void setManager(UserAccount manager) {
         this.manager = manager;
     }
 
