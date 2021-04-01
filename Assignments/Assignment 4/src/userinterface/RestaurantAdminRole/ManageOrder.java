@@ -5,6 +5,12 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+
 /**
  *
  * @author snehalchavan
@@ -14,8 +20,17 @@ public class ManageOrder extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrder
      */
-    public ManageOrder() {
+    JPanel userProcessContainer;
+    EcoSystem system;
+    UserAccount user;
+    private Restaurant restaurantAssigned;
+    
+    
+    public ManageOrder(JPanel userProcessContainer,EcoSystem system,UserAccount user) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.user = user;
     }
 
     /**
@@ -27,19 +42,64 @@ public class ManageOrder extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableRestaurantOrders = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+
+        jTableRestaurantOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableRestaurantOrders);
+
+        jLabel1.setText("Restaurant's Orders");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel1)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
+    private Restaurant getRestaurant() {
+        ArrayList<Restaurant> restaurantList = system.getRestaurantDirectory().getRestaurantList();
+        for(int i=0;i<restaurantList.size();i++){
+            if(restaurantList.get(i).getManager().getUsername().equals(user.getUsername())){
+                restaurantAssigned = restaurantList.get(i);
+            }
+        }
+        return restaurantAssigned;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableRestaurantOrders;
     // End of variables declaration//GEN-END:variables
 }

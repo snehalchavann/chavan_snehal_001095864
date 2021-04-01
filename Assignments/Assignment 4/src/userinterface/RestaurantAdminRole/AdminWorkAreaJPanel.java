@@ -82,7 +82,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageRestaurantJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageRestaurantJButtonActionPerformed
         // TODO add your handling code here:
-        
+        ManageRestaurantInfo manageRestaurant = new ManageRestaurantInfo(userProcessContainer,system,user);
+        userProcessContainer.add("manageRestaurantJPanel",manageRestaurant);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageRestaurantJButtonActionPerformed
 
     private void manageMenuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuJButtonActionPerformed
@@ -93,7 +96,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageMenuJButtonActionPerformed
 
     private void manageOrdersJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersJButtonActionPerformed
-
+        ManageOrder order = new ManageOrder(userProcessContainer,system,user);
+        userProcessContainer.add("manageOrderJPanel",order);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrdersJButtonActionPerformed
     
     

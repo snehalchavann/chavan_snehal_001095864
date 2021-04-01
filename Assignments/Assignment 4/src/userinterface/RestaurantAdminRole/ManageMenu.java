@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import static com.db4o.foundation.Iterators.map;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +18,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -59,6 +62,11 @@ public class ManageMenu extends javax.swing.JPanel {
         jTable1Menu = new javax.swing.JTable();
         jButton_Update = new javax.swing.JButton();
         jLabelName = new javax.swing.JLabel();
+        jButton_back = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField_deleteMenuItem = new javax.swing.JTextField();
+        jButtonDeleteItem = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("Food Name");
 
@@ -105,6 +113,24 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabelName.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabelName.setText("jLabel3");
 
+        jButton_back.setText("Back");
+        jButton_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_backActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Enter food item name");
+
+        jButtonDeleteItem.setText("Delete");
+        jButtonDeleteItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteItemActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Delete Menu Item");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,30 +138,43 @@ public class ManageMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton_Update)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1AddMenu))
-                            .addComponent(jTextField_FoodPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField_FoodName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextField_FoodName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(34, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField_FoodPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(jTextField_deleteMenuItem, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(85, 85, 85)
+                                    .addComponent(jButtonDeleteItem)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton_Update)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1AddMenu))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(jButton_back))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(116, 116, 116)
+                                .addComponent(jLabel4)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabelName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +185,7 @@ public class ManageMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabelName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField_FoodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,7 +197,16 @@ public class ManageMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Update)
                     .addComponent(jButton1AddMenu))
-                .addGap(139, 139, 139))
+                .addGap(18, 18, 18)
+                .addComponent(jButton_back)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField_deleteMenuItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonDeleteItem))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -169,6 +217,7 @@ public class ManageMenu extends javax.swing.JPanel {
         restaurant.setMenuItem(jTextField_FoodName.getText(), jTextField_FoodPrice.getText());
         jTextField_FoodName.setText("");
         jTextField_FoodPrice.setText("");
+        System.out.println("size fter addition"+restaurant.getMenu().size());
         JOptionPane.showMessageDialog(null, "Menu item added");
         showMenu();
                 
@@ -190,6 +239,10 @@ public class ManageMenu extends javax.swing.JPanel {
         for (Map.Entry<String, String> e : menu.entrySet()){
             if(e.getKey().equals(jTextField_FoodName.getText())){
                 menu.remove(e);
+                jTextField_FoodName.setText("");
+                jTextField_FoodPrice.setText("");
+                System.out.println("size fter upadte"+menu.size());
+               
                 restaurant.setMenuItem(jTextField_FoodName.getText(), jTextField_FoodPrice.getText());
             }
         }
@@ -203,17 +256,50 @@ public class ManageMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_FoodNameActionPerformed
 
+    private void jButton_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_backActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+         Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        AdminWorkAreaJPanel adminwjp = (AdminWorkAreaJPanel) component;
+//        adminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton_backActionPerformed
+
+    private void jButtonDeleteItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteItemActionPerformed
+        // TODO add your handling code here:
+        String menuItem = jTextField_deleteMenuItem.getText();
+        Restaurant restaurant = getRestaurant();
+        HashMap<String, String> menu = restaurant.getMenu();
+        for (Map.Entry<String, String> e : menu.entrySet()){
+            if(e.getKey().equals(menuItem)){
+                menu.remove(e.getKey());
+                System.out.println("size fter deletion"+menu.size());
+                jTextField_deleteMenuItem.setText("");
+                showMenu();
+                JOptionPane.showMessageDialog(null, "Menu Item deleted");
+                break;
+            }
+        }
+    }//GEN-LAST:event_jButtonDeleteItemActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1AddMenu;
+    private javax.swing.JButton jButtonDeleteItem;
     private javax.swing.JButton jButton_Update;
+    private javax.swing.JButton jButton_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1Menu;
     private javax.swing.JTextField jTextField_FoodName;
     private javax.swing.JTextField jTextField_FoodPrice;
+    private javax.swing.JTextField jTextField_deleteMenuItem;
     // End of variables declaration//GEN-END:variables
 
     private void showMenu() {

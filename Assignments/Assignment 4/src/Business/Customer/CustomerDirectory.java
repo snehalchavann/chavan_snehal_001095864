@@ -22,6 +22,15 @@ public class CustomerDirectory {
         return customerList;
     }
     
+    public Customer getCustomer(String name){
+        for(Customer customer : customerList){
+            if(customer.getCustomerName().equals(name)){
+                return customer;
+            }
+        }
+        return null;
+    }
+    
     public Customer newCustomer(String name, String contact,String address){
         Customer customer = new Customer();
         customer.setCustomerName(name);

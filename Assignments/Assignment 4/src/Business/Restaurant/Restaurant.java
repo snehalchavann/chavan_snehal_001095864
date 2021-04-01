@@ -5,6 +5,7 @@
  */
 package Business.Restaurant;
 
+import Business.Order.Order;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Restaurant {
     String name;
     UserAccount manager;
     HashMap<String, String> menu;
+    ArrayList<Order> restaurantOrder;
 //    ArrayList<String> menu;
 
     public HashMap<String, String> getMenu() {
@@ -30,6 +32,7 @@ public class Restaurant {
     
     public Restaurant(UserAccount manager){
         menu = new HashMap<String, String>();
+        restaurantOrder = new ArrayList<>();
         this.manager = manager;
     }
     
@@ -43,6 +46,14 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+
+    public ArrayList<Order> getRestaurantOrder() {
+        return restaurantOrder;
+    }
+
+    public void setRestaurantOrder(Order order){
+        restaurantOrder.add(order);
     }
 
     public UserAccount getManager() {

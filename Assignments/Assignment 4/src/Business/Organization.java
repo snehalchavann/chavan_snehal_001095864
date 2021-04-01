@@ -7,6 +7,7 @@ package Business;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -28,6 +29,8 @@ public abstract class Organization {
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private OrderDirectory orderDirectory;
+
     
     public enum Type{
         RestaurantAdmin("RestaurantAdmin"),
@@ -55,6 +58,7 @@ public abstract class Organization {
         
         customerDirectory = new CustomerDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
+        orderDirectory = new OrderDirectory();
     }
     public Organization(){
         
@@ -64,6 +68,10 @@ public abstract class Organization {
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+    
 
     public int getOrganizationID() {
         return organizationID;

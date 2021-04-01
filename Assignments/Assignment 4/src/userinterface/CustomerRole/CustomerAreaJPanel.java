@@ -5,6 +5,7 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
@@ -12,6 +13,8 @@ import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,7 +28,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private UserAccount userAccount;
     private DefaultTableModel model;
-    EcoSystem system;
+    EcoSystem system; 
+    Order createOrder; 
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
@@ -35,6 +39,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
+        createOrder = system.getCustomerDirectory().getCustomer(account.getEmployee().getName()).createOrder();
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
         populateRestaurant();
@@ -63,6 +68,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableShowRestaurants = new javax.swing.JTable();
+        jButton_placeOrder = new javax.swing.JButton();
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,6 +136,13 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTableShowRestaurants);
 
+        jButton_placeOrder.setText("Place Order");
+        jButton_placeOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_placeOrderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +156,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(requestTestJButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(requestTestJButton)
+                            .addComponent(jButton_placeOrder))
                         .addGap(86, 86, 86))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
@@ -167,12 +182,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(requestTestJButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(requestTestJButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_placeOrder)
+                        .addGap(49, 49, 49))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,8 +206,31 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
+    private void jButton_placeOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_placeOrderActionPerformed
+        // TODO add your handling code here:
+        Vector elementAt = model.getDataVector().elementAt(jTableShowRestaurants.getSelectedRow());
+        String name = (String) elementAt.get(0);
+        Restaurant restaurant = null;
+        ArrayList<Restaurant> restaurantList = system.getRestaurantDirectory().getRestaurantList();
+        for(int i=0;i<restaurantList.size();i++){
+            if(restaurantList.get(i).getName().equals(name)){
+                restaurant = restaurantList.get(i);
+            }
+        }
+        if(elementAt.size() == 0){
+            JOptionPane.showMessageDialog(null, "Select restaurant in table");
+        }else{
+            PlaceOrder order = new PlaceOrder(userProcessContainer,restaurant,system,userAccount,createOrder);
+        userProcessContainer.add("managePlacedOrdersJPanel",order);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        }
+        
+    }//GEN-LAST:event_jButton_placeOrderActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JButton jButton_placeOrder;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableShowRestaurants;
