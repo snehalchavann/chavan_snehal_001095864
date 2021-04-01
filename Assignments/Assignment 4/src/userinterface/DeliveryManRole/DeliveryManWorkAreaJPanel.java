@@ -4,10 +4,12 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
+import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -22,6 +24,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
+    private DefaultTableModel model;
     
     
     /**
@@ -34,12 +37,12 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.business = business;
       
-        
+        populateDeliveryManOrders();
         populateTable();
     }
     
     public void populateTable(){
-        
+        WorkQueue workQueue = userAccount.getWorkQueue();
     }
 
     /**
@@ -56,6 +59,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable_delivermanOrders = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -93,7 +98,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 70, 320, 96));
 
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +123,21 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+
+        jTable_delivermanOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable_delivermanOrders);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 300, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -161,8 +181,36 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable_delivermanOrders;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populateDeliveryManOrders() {
+        model = new DefaultTableModel();
+        DeliveryMan get = null;
+        jTable_delivermanOrders.setModel(model);
+        model.addColumn("Order ID");
+        model.addColumn("Customer Name");
+        model.addColumn("Delivery Address");
+        model.addColumn("Customer Contact");
+        model.addColumn("Status");
+        for(int i=0;i<business.getDeliveryManDirectory().getDeliverymanList().size();i++){
+        if(business.getDeliveryManDirectory().getDeliverymanList().get(i).getName().equals(userAccount.getEmployee().getName())){
+            get = business.getDeliveryManDirectory().getDeliverymanList().get(i);
+        }
+        }
+        for(int i=0;i<get.getOrder().size();i++){
+            model.addRow(new Object[]{
+                get.getOrder().get(i).getOrderID(),
+                get.getOrder().get(i).getCustomer().getCustomerName(),
+                get.getOrder().get(i).getCustomer().getAddress(),
+                get.getOrder().get(i).getCustomer().getContactNumber(),
+                get.getOrder().get(i).getOrderstatus()
+            });
+        }
+        
+    }
 }

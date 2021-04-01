@@ -5,6 +5,7 @@
  */
 package Business.DeliveryMan;
 
+import Business.Order.Order;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,15 @@ import java.util.ArrayList;
  */
 public class DeliveryMan {
     String name;
-    ArrayList<String> order;
+    ArrayList<Order> order;
+
+    public ArrayList<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order newOrder){
+        order.add(newOrder);
+    }
     
     public DeliveryMan(){
         order = new ArrayList<>();

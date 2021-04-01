@@ -25,9 +25,10 @@ public class Customer {
     Order order1;
     OrderDirectory orderList;
     private static int count = 1;
+    
 
-    public Order getOrder() {
-        return order1;
+    public ArrayList<Order> getOrder() {
+        return customerOrder;
     }
 
     public void setCustomerOrder(Order order1) {

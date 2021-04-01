@@ -8,6 +8,7 @@ package userinterface.CustomerRole;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Order.Order;
+import Business.Order.OrderDirectory;
 import Business.Order.OrderItem;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
@@ -37,6 +38,7 @@ public class PlaceOrder extends javax.swing.JPanel {
     UserAccount user;
     JPanel userProcessContainer;
     Order neworder;
+    OrderDirectory dir;
     
     public PlaceOrder(JPanel userProcessContainer,Restaurant restaurant,EcoSystem system,UserAccount user,Order newOrder) {
         initComponents();
@@ -147,20 +149,7 @@ public class PlaceOrder extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jButton_AddCart)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(41, 41, 41)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_placeOrder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_back))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(252, 252, 252)
                         .addComponent(jLabel1)
@@ -169,7 +158,21 @@ public class PlaceOrder extends javax.swing.JPanel {
                         .addGap(29, 29, 29)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton_AddCart)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton_placeOrder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_back)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -181,15 +184,15 @@ public class PlaceOrder extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_AddCart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_placeOrder)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_back))
-                .addGap(426, 426, 426))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_AddCart)
+                .addGap(385, 385, 385))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,6 +213,8 @@ public class PlaceOrder extends javax.swing.JPanel {
             restaurant.setRestaurantOrder(neworder);
             customer.setCustomerOrder(neworder);
             customer.setOrder(neworder);
+            system.getOrderDirectory().getOrderList().add(neworder);
+            
             JOptionPane.showMessageDialog(null, "Order placed successfully.");
             System.out.println("order count"+restaurant.getRestaurantOrder().size());
         

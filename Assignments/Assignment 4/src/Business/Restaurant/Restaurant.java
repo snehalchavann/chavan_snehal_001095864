@@ -34,6 +34,7 @@ public class Restaurant {
         menu = new HashMap<String, String>();
         restaurantOrder = new ArrayList<>();
         this.manager = manager;
+        assignMenu();
     }
     
     public void setMenuItem(String name,String price){
@@ -62,5 +63,10 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    private void assignMenu() {
+        menu.put("Pizza", "20");
+         menu.put("Tea", "10");
     }
 }

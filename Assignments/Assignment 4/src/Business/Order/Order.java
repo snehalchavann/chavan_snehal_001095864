@@ -23,6 +23,7 @@ public class Order extends WorkRequest{
     private Customer customer;
     private Restaurant restaurant;
     ArrayList<OrderItem> orderItems;
+    private static int orderCount =1;
 
     public ArrayList<OrderItem> getOrderItems() {
         return orderItems;
@@ -34,6 +35,8 @@ public class Order extends WorkRequest{
     
     public Order(){
         orderItems = new ArrayList<>();
+        orderID = String.valueOf(orderCount);
+        orderCount++;
     }
 
     public String getOrderID() {
