@@ -22,6 +22,7 @@ public class Customer {
     int id;
     DeliveryMan deliveryMan;
     ArrayList<Order> customerOrder;
+    Order currentorder;
     Order order1;
     OrderDirectory orderList;
     private static int count = 1;
@@ -29,6 +30,10 @@ public class Customer {
 
     public ArrayList<Order> getOrder() {
         return customerOrder;
+    }
+    
+    public Order getcurrentOrder(){
+        return currentorder;
     }
 
     public void setCustomerOrder(Order order1) {
@@ -55,6 +60,7 @@ public class Customer {
     
     public Order createOrder(){
         Order order = new Order();
+        currentorder = order;
 //        orderList.getOrderList().add(order);
 //        customerOrder.add(order);
         return order;

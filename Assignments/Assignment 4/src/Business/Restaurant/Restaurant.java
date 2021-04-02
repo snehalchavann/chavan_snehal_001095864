@@ -17,9 +17,28 @@ import java.util.HashMap;
  */
 public class Restaurant {
     String name;
+    String address;
+    String contact;
     UserAccount manager;
     HashMap<String, String> menu;
     ArrayList<Order> restaurantOrder;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+    
 //    ArrayList<String> menu;
 
     public HashMap<String, String> getMenu() {

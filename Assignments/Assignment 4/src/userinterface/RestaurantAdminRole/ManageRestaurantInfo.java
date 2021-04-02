@@ -8,7 +8,10 @@ package userinterface.RestaurantAdminRole;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -31,6 +34,8 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
         this.system = system;
         this.user = user;
         jTextField_restaurantName.setText(getRestaurant().getName());
+        jTextField_restaurantAddress.setText(getRestaurant().getAddress());
+        jTextField_restaurantContact.setText(getRestaurant().getContact());
     }
     
     private Restaurant getRestaurant() {
@@ -56,12 +61,51 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField_restaurantName = new javax.swing.JTextField();
+        jButton_back = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField_restaurantAddress = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField_restaurantContact = new javax.swing.JTextField();
+        jButton_update = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("Restaurant Information");
 
         jLabel3.setText("Name");
+
+        jTextField_restaurantName.setEditable(false);
+
+        jButton_back.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_back.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_back.setText("Back");
+        jButton_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_backActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Address");
+
+        jTextField_restaurantAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_restaurantAddressActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Contact");
+
+        jButton_update.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_update.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_update.setText("Update");
+        jButton_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_updateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -73,11 +117,26 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
                         .addGap(114, 114, 114)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(75, 75, 75)
+                                .addComponent(jTextField_restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
+                                .addGap(75, 75, 75)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField_restaurantAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_restaurantContact, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jLabel3)
-                        .addGap(75, 75, 75)
-                        .addComponent(jTextField_restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addComponent(jButton_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton_back, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,15 +147,56 @@ public class ManageRestaurantInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField_restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField_restaurantAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField_restaurantContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_back)
+                    .addComponent(jButton_update))
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_backActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        AdminWorkAreaJPanel adminwjp = (AdminWorkAreaJPanel) component;
+        //        adminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton_backActionPerformed
+
+    private void jTextField_restaurantAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_restaurantAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_restaurantAddressActionPerformed
+
+    private void jButton_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_updateActionPerformed
+        // TODO add your handling code here:
+        Restaurant restaurant = getRestaurant();
+        restaurant.setAddress(jTextField_restaurantAddress.getText());
+        restaurant.setContact(jTextField_restaurantContact.getText());
+        JOptionPane.showMessageDialog(null, "Details Updated Successfully");
+    }//GEN-LAST:event_jButton_updateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_back;
+    private javax.swing.JButton jButton_update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTextField_restaurantAddress;
+    private javax.swing.JTextField jTextField_restaurantContact;
     private javax.swing.JTextField jTextField_restaurantName;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,8 +42,11 @@ public class ConfigureASystem {
         UserAccount ua3 = system.getUserAccountDirectory().createUserAccount("customer", "customer", employeeCustomer, new CustomerRole());
         system.getCustomerDirectory().newCustomer(employeeCustomer.getName(), "12345", "Boston");
         Restaurant restaurant1 = system.getRestaurantDirectory().createRestaurant("Mumbai spice",ua1);
+        restaurant1.setAddress("Boston");
+        restaurant1.setContact("1234567890");
         Restaurant restaurant2 = system.getRestaurantDirectory().createRestaurant("Honest",ua4);
-        
+        restaurant2.setAddress("Boylston Street");
+        restaurant2.setContact("6666666666");
         return system;
     }
     

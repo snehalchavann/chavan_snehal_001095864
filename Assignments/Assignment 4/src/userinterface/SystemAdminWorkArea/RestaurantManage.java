@@ -87,9 +87,20 @@ public class RestaurantManage extends javax.swing.JPanel {
         jButton2CreateManager = new javax.swing.JButton();
         jComboBox1RestaurantManagerList = new javax.swing.JComboBox<>();
         jLabelManagerList = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel_restAddress = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField_restaddress = new javax.swing.JTextField();
+        jlabel_restContact = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        AddRestaurantjbutton.setBackground(new java.awt.Color(0, 0, 0));
+        AddRestaurantjbutton.setForeground(new java.awt.Color(255, 255, 255));
         AddRestaurantjbutton.setText("Add Restaurant");
         AddRestaurantjbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +108,8 @@ public class RestaurantManage extends javax.swing.JPanel {
             }
         });
 
+        deleteRestaurant.setBackground(new java.awt.Color(0, 0, 0));
+        deleteRestaurant.setForeground(new java.awt.Color(255, 255, 255));
         deleteRestaurant.setText("Delete Restaurant");
         deleteRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +129,8 @@ public class RestaurantManage extends javax.swing.JPanel {
 
         jLabel5.setText("Restaurants");
 
+        jButton1_back.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1_back.setForeground(new java.awt.Color(255, 255, 255));
         jButton1_back.setText("Back");
         jButton1_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +156,10 @@ public class RestaurantManage extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1Restaurants);
 
+        jPanel1DelUpManager.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton1Upadte.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1Upadte.setForeground(new java.awt.Color(255, 255, 255));
         jButton1Upadte.setText("Update");
         jButton1Upadte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +167,8 @@ public class RestaurantManage extends javax.swing.JPanel {
             }
         });
 
+        jButton2Delete.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2Delete.setForeground(new java.awt.Color(255, 255, 255));
         jButton2Delete.setText("Delete");
         jButton2Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +176,7 @@ public class RestaurantManage extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setText("Restaurant Manager");
 
         jLabel7.setText("Name");
@@ -180,10 +202,10 @@ public class RestaurantManage extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addGap(55, 55, 55))
             .addGroup(jPanel1DelUpManagerLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1DelUpManagerLayout.createSequentialGroup()
-                        .addGroup(jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel12)
                             .addGroup(jPanel1DelUpManagerLayout.createSequentialGroup()
                                 .addGroup(jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,13 +216,13 @@ public class RestaurantManage extends javax.swing.JPanel {
                                     .addComponent(jPasswordField_updatepass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextDelManager, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField_updateUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))))
-                        .addContainerGap(12, Short.MAX_VALUE))
+                                        .addComponent(jTextField_updateUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))))))
                     .addGroup(jPanel1DelUpManagerLayout.createSequentialGroup()
-                        .addComponent(jButton1Upadte)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2Delete)
-                        .addGap(19, 19, 19))))
+                        .addContainerGap()
+                        .addComponent(jButton1Upadte, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1DelUpManagerLayout.setVerticalGroup(
             jPanel1DelUpManagerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,6 +256,8 @@ public class RestaurantManage extends javax.swing.JPanel {
 
         jPasswordFieldManagercreate.setText("jPasswordField1");
 
+        jButton2CreateManager.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2CreateManager.setForeground(new java.awt.Color(255, 255, 255));
         jButton2CreateManager.setText("Create Manager");
         jButton2CreateManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +265,26 @@ public class RestaurantManage extends javax.swing.JPanel {
             }
         });
 
+        jComboBox1RestaurantManagerList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1RestaurantManagerListActionPerformed(evt);
+            }
+        });
+
         jLabelManagerList.setText("Restaurant Managers");
+
+        jLabel13.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel13.setText("Restaurant Management");
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel14.setText("Restaurant");
+
+        jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel15.setText("Create Manager");
+
+        jLabel_restAddress.setText("Enter Address");
+
+        jLabel17.setText("Enter Contact");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -250,137 +293,211 @@ public class RestaurantManage extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(deleteRestaurant)
-                        .addGap(63, 63, 63)
-                        .addComponent(jButton1_back)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
+                        .addGap(398, 398, 398)
+                        .addComponent(jLabel13))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addGap(59, 59, 59))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(144, 144, 144)
+                                        .addComponent(jLabel14)
+                                        .addGap(140, 140, 140))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(83, 83, 83)
+                                                .addComponent(AddRestaurantjbutton))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jLabel8)
+                                                                .addGap(59, 59, 59)
+                                                                .addComponent(jTextField_managernameCreate))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                    .addComponent(jLabel_restAddress)
+                                                                    .addComponent(jLabel17)
+                                                                    .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(120, 120, 120)
+                                                                        .addComponent(jLabel15)))
+                                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(jLabel9))
+                                                            .addComponent(jLabel10))
+                                                        .addGap(90, 90, 90)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jPasswordFieldManagercreate)
+                                                            .addComponent(jTextField_managernameUsername))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jTextField_restaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGap(207, 207, 207)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jTextField_manager)
+                                                        .addComponent(jTextField_restaurantName)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jPasswordFieldManager, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                        .addComponent(jTextField_managerUsername)))
+                                                .addComponent(jlabel_restContact, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
                                 .addComponent(jButton2CreateManager)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordFieldManagercreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField_managernameCreate)
-                                .addComponent(jTextField_managernameUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(374, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordFieldManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField_manager)
-                                .addComponent(jTextField_restaurantName)
-                                .addComponent(jTextField_managerUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(restaurantList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AddRestaurantjbutton))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1DelUpManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabelManagerList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1RestaurantManagerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                                .addGap(523, 523, 523)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(deleteRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jButton1_back, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel1DelUpManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabelManagerList))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jLabel5)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(restaurantList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(8, 8, 8))
+                                    .addComponent(jComboBox1RestaurantManagerList, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField_restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField_manager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField_managerUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jPasswordFieldManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(AddRestaurantjbutton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(restaurantList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(deleteRestaurant)
-                            .addComponent(jButton1_back))
-                        .addGap(13, 13, 13))
+                .addGap(21, 21, 21)
+                .addComponent(jLabel13)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1DelUpManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox1RestaurantManagerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelManagerList))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2CreateManager))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField_managernameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField_managernameUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
+                                .addComponent(jLabel14)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jPasswordFieldManagercreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24))))))
+                                    .addComponent(jLabel1)
+                                    .addComponent(jTextField_restaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jTextField_manager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jTextField_managerUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jPasswordFieldManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_restAddress)
+                                    .addComponent(jTextField_restaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jlabel_restContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(AddRestaurantjbutton)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_managernameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_managernameUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jPasswordFieldManagercreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2CreateManager))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(restaurantList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteRestaurant)
+                            .addComponent(jButton1_back))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelManagerList)
+                            .addComponent(jComboBox1RestaurantManagerList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(88, 88, 88)
+                        .addComponent(jPanel1DelUpManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddRestaurantjbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRestaurantjbuttonActionPerformed
         // TODO add your handling code here:
+        if(jTextField_restaurantName.getText().isEmpty() || jTextField_manager.getText().isEmpty() || jTextField_managerUsername.getText().isEmpty() || jTextField_restaddress.getText().isEmpty() || jlabel_restContact.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please fill all the details");
+            return;
+        }
+        boolean flag;
+        
         String Restaurantname = jTextField_restaurantName.getText();
         String managerName = jTextField_manager.getText();
+        flag = Restaurantname.matches("^[a-zA-Z]+$");
+        if(flag == false){
+            JOptionPane.showMessageDialog(null, "Restaurant name cannot have integer values");
+            return;
+        }
         Employee manager = system.getEmployeeDirectory().createEmployee(managerName);
         String username = jTextField_managerUsername.getText();
-        String password = String.valueOf(jPasswordFieldManager.getPassword());
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(username) == false){
+            JOptionPane.showMessageDialog(null, "User already exists");
+            return;
+        }
+         
+        String  password = String.valueOf(jPasswordFieldManager.getPassword());
+        if(jPasswordField_updatepass.getPassword().length < 8){
+            JOptionPane.showMessageDialog(null, "Enter atleast 8 characters for password");
+        }
+        String address = jTextField_restaddress.getText();
+        String contact = jlabel_restContact.getText();
+        if(contact.length() != 10){
+            JOptionPane.showMessageDialog(null, "Contact number must be of 10 digits");
+            return;
+        }
+        flag = contact.matches("^[0-9]+$");
+        if(flag == false){
+            JOptionPane.showMessageDialog(null, "Contact number must ntain digits only");
+            return;
+        }
         
         UserAccount managerAdmin = system.getUserAccountDirectory().createUserAccount(username, password, manager, new AdminRole());
-        system.getRestaurantDirectory().createRestaurant(Restaurantname,managerAdmin);
+        Restaurant createRestaurant = system.getRestaurantDirectory().createRestaurant(Restaurantname,managerAdmin);
+        createRestaurant.setAddress(address);
+        createRestaurant.setContact(contact);
         restaurantList.addItem(system.getRestaurantDirectory().getRestaurantList().get(system.getRestaurantDirectory().getRestaurantList().size()-1).getName());
         jComboBox1RestaurantManagerList.addItem(system.getRestaurantDirectory().getRestaurantList().get(system.getRestaurantDirectory().getRestaurantList().size()-1).getManager().getEmployee().getName());
         model.addRow(new Object[]{
@@ -480,8 +597,14 @@ public class RestaurantManage extends javax.swing.JPanel {
         // TODO add your handling code here:
         //to be continued
         String username = jTextField_updateUsername.getText();
-        
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(username) == false){
+            JOptionPane.showMessageDialog(null, "User already exists");
+            return;
+        }
         String password = String.valueOf(jPasswordField_updatepass.getPassword());
+        if(jPasswordField_updatepass.getPassword().length < 8){
+            JOptionPane.showMessageDialog(null, "Enter atleast 8 characters for password");
+        }
         ArrayList<UserAccount> user = system.getUserAccountDirectory().getUserAccountList();
         for(int i=0;i<user.size();i++){
             if(jTextDelManager.getText().equals(user.get(i).getEmployee().getName())){
@@ -496,8 +619,22 @@ public class RestaurantManage extends javax.swing.JPanel {
     private void jButton2CreateManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2CreateManagerActionPerformed
         // TODO add your handling code here:
         String managerName1 = jTextField_managernameCreate.getText();
+        boolean flag;
+        if(jTextField_managernameCreate.getText().isEmpty() || jTextField_managernameUsername.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Manager name cannot be empty");
+            return;
+        }
+        flag = managerName1.matches("^[a-zA-Z]+$");
+        if(flag == false){
+            JOptionPane.showMessageDialog(null, "Enter valid name");
+            return;
+        }
         Employee manager = system.getEmployeeDirectory().createEmployee(managerName1);
         String username = jTextField_managernameUsername.getText();
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(username) == false){
+            JOptionPane.showMessageDialog(null, "User already exists");
+            return;
+        }
         String password = String.valueOf(jPasswordFieldManagercreate.getPassword());
         
         UserAccount managerAdmin = system.getUserAccountDirectory().createUserAccount(username, password, manager, new AdminRole());
@@ -508,6 +645,10 @@ public class RestaurantManage extends javax.swing.JPanel {
         showRestaurantManagerList();
         JOptionPane.showMessageDialog(null, "Manager created.");
     }//GEN-LAST:event_jButton2CreateManagerActionPerformed
+
+    private void jComboBox1RestaurantManagerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1RestaurantManagerListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1RestaurantManagerListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -523,6 +664,10 @@ public class RestaurantManage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -532,6 +677,7 @@ public class RestaurantManage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelManagerList;
+    private javax.swing.JLabel jLabel_restAddress;
     private javax.swing.JPanel jPanel1DelUpManager;
     private javax.swing.JPasswordField jPasswordFieldManager;
     private javax.swing.JPasswordField jPasswordFieldManagercreate;
@@ -543,8 +689,10 @@ public class RestaurantManage extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField_managerUsername;
     private javax.swing.JTextField jTextField_managernameCreate;
     private javax.swing.JTextField jTextField_managernameUsername;
+    private javax.swing.JTextField jTextField_restaddress;
     private javax.swing.JTextField jTextField_restaurantName;
     private javax.swing.JTextField jTextField_updateUsername;
+    private javax.swing.JTextField jlabel_restContact;
     private javax.swing.JComboBox<String> restaurantList;
     // End of variables declaration//GEN-END:variables
 

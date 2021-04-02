@@ -12,6 +12,8 @@ import Business.Order.Order;
 import Business.Order.OrderItem;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,6 +72,9 @@ public class ManageOrder extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton_AssignDeliveryMan = new javax.swing.JButton();
+        jButton_back = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jTableRestaurantOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,12 +94,16 @@ public class ManageOrder extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableRestaurantOrders);
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Restaurant's Orders");
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("View Order");
 
         jLabel3.setText("Order ID");
 
+        jButton_accept.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_accept.setForeground(new java.awt.Color(255, 255, 255));
         jButton_accept.setText("Accept");
         jButton_accept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +111,8 @@ public class ManageOrder extends javax.swing.JPanel {
             }
         });
 
+        jButton_reject.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_reject.setForeground(new java.awt.Color(255, 255, 255));
         jButton_reject.setText("Reject ");
         jButton_reject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,13 +149,13 @@ public class ManageOrder extends javax.swing.JPanel {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1_viewOrderLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1_viewOrderLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jButton_accept)
-                        .addGap(64, 64, 64)
-                        .addComponent(jButton_reject)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addGroup(jPanel1_viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1_viewOrderLayout.createSequentialGroup()
+                                .addComponent(jButton_accept, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton_reject, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1_viewOrderLayout.setVerticalGroup(
             jPanel1_viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,13 +177,24 @@ public class ManageOrder extends javax.swing.JPanel {
 
         jLabel4.setText("Delivery Man");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setText("Assign Delivery Man");
 
+        jButton_AssignDeliveryMan.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_AssignDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
         jButton_AssignDeliveryMan.setText("Assign Delivery Man");
         jButton_AssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_AssignDeliveryManActionPerformed(evt);
+            }
+        });
+
+        jButton_back.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_back.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_back.setText("Back");
+        jButton_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_backActionPerformed(evt);
             }
         });
 
@@ -181,13 +203,13 @@ public class ManageOrder extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(148, 148, 148))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(108, 108, 108))
+                .addGap(300, 300, 300))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1_viewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,17 +221,18 @@ public class ManageOrder extends javax.swing.JPanel {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBox_deliverymanList, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jButton_AssignDeliveryMan)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton_back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_AssignDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(300, 300, 300))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -218,15 +241,17 @@ public class ManageOrder extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1_viewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
+                        .addGap(277, 277, 277)
                         .addComponent(jLabel5)
-                        .addGap(46, 46, 46)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox_deliverymanList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(31, 31, 31)
-                        .addComponent(jButton_AssignDeliveryMan)))
-                .addGap(240, 240, 240))
+                        .addComponent(jButton_AssignDeliveryMan)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton_back)))
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -316,7 +341,7 @@ public class ManageOrder extends javax.swing.JPanel {
         for(int i=0;i<deliverymanList.size();i++){
             if(deliverymanList.get(i).getName().equals(deliveryman)){
                 deliverymanList.get(i).setOrder(findOrder);
-                
+                findOrder.setDeliveryMan(deliverymanList.get(i).getName());
                 JOptionPane.showMessageDialog(null, "DeliveryMan assigned");
                 System.out.println("Deliveryman........."+deliverymanList.get(i).getOrder().get(deliverymanList.get(i).getOrder().size()-1).getCustomer().getCustomerName());
                 break;
@@ -324,6 +349,17 @@ public class ManageOrder extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_jButton_AssignDeliveryManActionPerformed
+
+    private void jButton_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_backActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        AdminWorkAreaJPanel adminwjp = (AdminWorkAreaJPanel) component;
+        //        adminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton_backActionPerformed
 
 
     private Restaurant getRestaurant() {
@@ -339,6 +375,7 @@ public class ManageOrder extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_AssignDeliveryMan;
     private javax.swing.JButton jButton_accept;
+    private javax.swing.JButton jButton_back;
     private javax.swing.JButton jButton_reject;
     private javax.swing.JComboBox<String> jComboBox_deliverymanList;
     private javax.swing.JLabel jLabel1;

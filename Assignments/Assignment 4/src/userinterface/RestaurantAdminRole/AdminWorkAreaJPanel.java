@@ -24,7 +24,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.user = user;
-        //valueLabel.setText();
+//        valueLabel.setText();
     }
     
     /** This method is called from within the constructor to
@@ -42,12 +42,15 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area -Adminstrative Role");
+        jLabel1.setText("Restaurant Manager");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
+        manageRestaurantJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageRestaurantJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageRestaurantJButton.setText("Manage Restaurant Info");
         manageRestaurantJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,27 +59,29 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageRestaurantJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
 
+        manageMenuJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageMenuJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageMenuJButton.setText("Manage menu");
         manageMenuJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageMenuJButtonActionPerformed(evt);
             }
         });
-        add(manageMenuJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
+        add(manageMenuJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 180, -1));
 
+        manageOrdersJButton.setBackground(new java.awt.Color(0, 0, 0));
+        manageOrdersJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageOrdersJButton.setText("Manage Orders");
         manageOrdersJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrdersJButtonActionPerformed(evt);
             }
         });
-        add(manageOrdersJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        add(manageOrdersJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 180, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
-
-        valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 

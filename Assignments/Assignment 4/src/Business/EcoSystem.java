@@ -74,6 +74,7 @@ public class EcoSystem extends Organization{
     
     public boolean checkIfUserIsUnique(String userName){
        //
+       
        return false;
     }
 }
