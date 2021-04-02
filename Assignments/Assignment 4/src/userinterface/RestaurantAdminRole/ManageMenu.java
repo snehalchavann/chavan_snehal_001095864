@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import java.util.regex.Matcher;
@@ -268,16 +269,29 @@ public class ManageMenu extends javax.swing.JPanel {
         Restaurant restaurant = getRestaurant();
         
         HashMap<String, String> menu = restaurant.getMenu();
-        for (Map.Entry<String, String> e : menu.entrySet()){
-            if(e.getKey().equals(jTextField_FoodName.getText())){
-                menu.remove(e);
-                jTextField_FoodName.setText("");
-                jTextField_FoodPrice.setText("");
-                System.out.println("size fter upadte"+menu.size());
+        List<Restaurant> resList = system.getRestaurantDirectory().getRestaurantList();
+       
+        for(int i = 0; i < resList.size(); i++){
+            if(resList.get(i).getManager().getUsername().equals(user.getUsername())){
+                Map<String, String> map = resList.get(i).getMenu();
                
-                restaurant.setMenuItem(jTextField_FoodName.getText(), jTextField_FoodPrice.getText());
+                for(int j = 0; j < map.size(); j++){
+                    if (map.containsKey(jTextField_FoodName.getText())){
+                        resList.get(i).getMenu().put(jTextField_FoodName.getText(), jTextField_FoodPrice.getText());
+                    }
+                }
             }
-        }
+        }        
+//        for(Map.Entry<String, String> e : menu.entrySet()){
+//            if(e.getKey().equals(jTextField_FoodName.getText())){
+//                menu.remove(e);
+//                jTextField_FoodName.setText("");
+//                jTextField_FoodPrice.setText("");
+//                System.out.println("size fter upadte"+menu.size());
+//               
+//                restaurant.setMenuItem(jTextField_FoodName.getText(), jTextField_FoodPrice.getText());
+//            }
+//        }
         
         JOptionPane.showMessageDialog(null, "Menu item updated");
         showMenu();

@@ -510,6 +510,8 @@ public class RestaurantManage extends javax.swing.JPanel {
         jTextField_managerUsername.setText("");
         jTextField_restaurantName.setText("");
         jPasswordFieldManager.setText("");
+        jTextField_restaddress.setText("");
+        jlabel_restContact.setText("");
         JOptionPane.showMessageDialog(null, "Restaurant Added Successfully.");
     }//GEN-LAST:event_AddRestaurantjbuttonActionPerformed
 
