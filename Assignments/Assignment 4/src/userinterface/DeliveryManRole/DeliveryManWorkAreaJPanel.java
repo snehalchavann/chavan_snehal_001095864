@@ -52,15 +52,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTable(){
-//         model = new DefaultTableModel();
         DeliveryMan get = null;
-//        workRequestJTable.setModel(model);
-//        model.addColumn("Order ID");
-//        model.addColumn("Customer Name");
-//        model.addColumn("Delivery Address");
-//        model.addColumn("Customer Contact");
-//        model.addColumn("Status");
-//        model.addColumn("Comment");
+
         for(int i=0;i<business.getDeliveryManDirectory().getDeliverymanList().size();i++){
         if(business.getDeliveryManDirectory().getDeliverymanList().get(i).getName().equals(userAccount.getEmployee().getName())){
             get = business.getDeliveryManDirectory().getDeliverymanList().get(i);
@@ -90,7 +83,6 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_delivermanOrders = new javax.swing.JTable();
 
@@ -115,16 +107,6 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 120, -1));
-
-        refreshJButton.setBackground(new java.awt.Color(0, 0, 0));
-        refreshJButton.setForeground(new java.awt.Color(255, 255, 255));
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
-            }
-        });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, -1, -1));
 
         jTable_delivermanOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,15 +162,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                     order.get(j).setOrderstatus("Out for Delivery");
                 }
             }
-//            populateTable();
-//            model1.addRow(new Object[]{
-//                name,
-//                model.getValueAt(selectedRow, 1).toString(),
-//                model.getValueAt(selectedRow, 2).toString(),
-//                model.getValueAt(selectedRow, 3).toString(),
-//                model.getValueAt(selectedRow, 4).toString(),
-//                model.getValueAt(selectedRow, 5).toString()
-//            });
+
         }
         
         populateDeliveryManOrders();
@@ -231,25 +205,9 @@ int selectedRow = jTable_delivermanOrders.getSelectedRow();
             }
         }
         populateDeliveryManOrders();
-//        model.addRow(new Object[]{
-//            model.getValueAt(selectedRow, 0).toString(),
-//            model.getValueAt(selectedRow, 1).toString(),
-//            model.getValueAt(selectedRow, 2).toString(),
-//            model.getValueAt(selectedRow, 3).toString(),
-//            current.getOrderstatus(),
-//            model.getValueAt(selectedRow, 5).toString(),
-//        });
-        
-//        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
-//        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+
         
     }//GEN-LAST:event_processJButtonActionPerformed
-
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateDeliveryManOrders();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
 
     private void jTable_delivermanOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_delivermanOrdersMouseClicked
         // TODO add your handling code here:
@@ -280,7 +238,6 @@ int selectedRow = jTable_delivermanOrders.getSelectedRow();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable_delivermanOrders;
     private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
     // End of variables declaration//GEN-END:variables
 
     private void populateDeliveryManOrders() {
@@ -312,29 +269,6 @@ int selectedRow = jTable_delivermanOrders.getSelectedRow();
         
     }
 
-//    private void getCustomer() {
-//        int selectedRow = jTable_delivermanOrders.getSelectedRow();
-//        DefaultTableModel model = (DefaultTableModel) jTable_delivermanOrders.getModel();
-//        String name = model.getValueAt(selectedRow, 1).toString();
-//        
-//        ArrayList<Order> restaurantOrders = getRestaurant(name).getRestaurantOrder();
-//        for(int i=0;i<restaurantOrders.size();i++){
-//            if(restaurantOrders.get(i).getCustomer().getCustomerName().equals(name)){
-//                customer = restaurantOrders.get(i).getCustomer();
-//                restaurantOrders.get(i).setOrderstatus("Preparing order");
-//            }
-//        }
-//    }
-    
-//    private Restaurant getRestaurant(String name) {
-//        ArrayList<Restaurant> restaurantList = business.getRestaurantDirectory().getRestaurantList();
-//        for(int i=0;i<restaurantList.size();i++){
-//            if(restaurantList.get(i).getManager().getUsername().equals(name)){
-//                restaurantAssigned = restaurantList.get(i);
-//            }
-//        }
-//        return restaurantAssigned;
-//    }
 
     
 }

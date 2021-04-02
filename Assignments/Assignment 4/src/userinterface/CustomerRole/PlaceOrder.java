@@ -39,7 +39,9 @@ public class PlaceOrder extends javax.swing.JPanel {
     UserAccount user;
     JPanel userProcessContainer;
     Order neworder;
+    OrderItem item;
     OrderDirectory dir;
+    private DefaultTableModel model1;
     
     public PlaceOrder(JPanel userProcessContainer,Restaurant restaurant,EcoSystem system,UserAccount user,Order newOrder) {
         initComponents();
@@ -263,12 +265,7 @@ public class PlaceOrder extends javax.swing.JPanel {
     private void jButton_placeOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_placeOrderActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableAddtocart.getModel();
-        Customer customer = system.getCustomerDirectory().getCustomer(user.getEmployee().getName());
-        
-        
-//            Vector menuItems = model.getDataVector().elementAt(jTableAddtocart.getSelectedRow());
-            //Order createOrder = system.getCustomerDirectory().getCustomer(user.getEmployee().getName()).createOrder();
-            
+        Customer customer = system.getCustomerDirectory().getCustomer(user.getEmployee().getName());          
             neworder.setOrderstatus("Placed");
 //            neworder.setQuantity(Integer.parseInt((String) menuItems.get(3)));
             neworder.setIsDeliveryManAssigned(false);
@@ -282,7 +279,7 @@ public class PlaceOrder extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(null, "Order placed successfully.");
             System.out.println("order count"+restaurant.getRestaurantOrder().size());
-        
+            
         
     }//GEN-LAST:event_jButton_placeOrderActionPerformed
 
@@ -308,7 +305,7 @@ public class PlaceOrder extends javax.swing.JPanel {
         DefaultTableModel model1 = (DefaultTableModel) jTableMenu.getModel();
         String name = model1.getValueAt(selectedRow, 0).toString();
         String price =model1.getValueAt(selectedRow, 1).toString();
-        OrderItem item = new OrderItem();
+        item = new OrderItem();
         item.setMenuItem(name);
         item.setMenuPrice(price);
         item.setQuantity(Integer.parseInt(jTextField1.getText()));
@@ -390,12 +387,12 @@ public class PlaceOrder extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void createAddToCartTable() {
-        model = new DefaultTableModel();
+        model1 = new DefaultTableModel();
 
-            jTableAddtocart.setModel(model);
-            model.addColumn("Food Name");
-            model.addColumn("Price");
-            model.addColumn("Quantity");
-            model.addColumn("Order Status");
+            jTableAddtocart.setModel(model1);
+            model1.addColumn("Food Name");
+            model1.addColumn("Price");
+            model1.addColumn("Quantity");
+            model1.addColumn("Order Status");
     }
 }

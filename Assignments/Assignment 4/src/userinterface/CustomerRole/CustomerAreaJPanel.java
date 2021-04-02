@@ -31,6 +31,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private DefaultTableModel model;
     EcoSystem system; 
     Order createOrder; 
+    private DefaultTableModel model1;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
@@ -40,7 +41,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
-        createOrder = system.getCustomerDirectory().getCustomer(account.getEmployee().getName()).createOrder();
+//        createOrder = system.getCustomerDirectory().getCustomer(account.getEmployee().getName()).createOrder();
         valueLabel.setText(account.getEmployee().getName());
         populateRequestTable();
         populateRestaurant();
@@ -209,18 +210,20 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void jButton_placeOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_placeOrderActionPerformed
         // TODO add your handling code here:
-        Vector elementAt = model.getDataVector().elementAt(jTableShowRestaurants.getSelectedRow());
+        Vector elementAt = model1.getDataVector().elementAt(jTableShowRestaurants.getSelectedRow());
         String name = (String) elementAt.get(0);
         Restaurant restaurant = null;
         ArrayList<Restaurant> restaurantList = system.getRestaurantDirectory().getRestaurantList();
         for(int i=0;i<restaurantList.size();i++){
             if(restaurantList.get(i).getName().equals(name)){
                 restaurant = restaurantList.get(i);
+                System.out.println("rest name...."+restaurant.getName());
             }
         }
         if(elementAt.size() == 0){
             JOptionPane.showMessageDialog(null, "Select restaurant in table");
         }else{
+            createOrder = system.getCustomerDirectory().getCustomer(userAccount.getEmployee().getName()).createOrder();
             PlaceOrder order = new PlaceOrder(userProcessContainer,restaurant,system,userAccount,createOrder);
         userProcessContainer.add("managePlacedOrdersJPanel",order);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
@@ -242,11 +245,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void populateRestaurant() {
         ArrayList<Restaurant> restaurantList = system.getRestaurantDirectory().getRestaurantList();
-        model = new DefaultTableModel();
-        jTableShowRestaurants.setModel(model);
-        model.addColumn("Name");
+        model1 = new DefaultTableModel();
+        jTableShowRestaurants.setModel(model1);
+        model1.addColumn("Name");
         for(int i=0;i<restaurantList.size();i++){
-            model.addRow(new Object[]{
+            model1.addRow(new Object[]{
                 restaurantList.get(i).getName()
             });
         }

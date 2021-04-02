@@ -260,6 +260,9 @@ public class ManageOrder extends javax.swing.JPanel {
         jPanel1_viewOrder.setVisible(true);
         int selectedRow = jTableRestaurantOrders.getSelectedRow();
         DefaultTableModel model1 = (DefaultTableModel) jTableRestaurantOrders.getModel();
+        
+        
+        
         String name = model1.getValueAt(selectedRow, 2).toString();
         ArrayList<Order> restaurantOrders = getRestaurant().getRestaurantOrder();
         for(int i=0;i<restaurantOrders.size();i++){
@@ -274,20 +277,23 @@ public class ManageOrder extends javax.swing.JPanel {
             model.addColumn("Quantity");
 
         ArrayList<Customer> customerList = system.getCustomerDirectory().getCustomerList();
-        
+        ArrayList<OrderItem> orderItems1 = null ;
         ArrayList<Order> orderItems = customer.getOrder();
+        for(int i=0;i<orderItems.size();i++){
+            if(orderItems.get(i).getOrderID().equals(model1.getValueAt(selectedRow, 0).toString())){
+                orderItems1 = orderItems.get(i).getOrderItems();
+            }
+        }
         Order orderLatest = orderItems.get(orderItems.size()-1);
-        for(int j=0;j<orderLatest.getOrderItems().size();j++){
+        jTextField1.setText(model1.getValueAt(selectedRow, 0).toString());
+        for(int j=0;j<orderItems1.size();j++){
             
             DefaultTableModel model = (DefaultTableModel) jTableViewData.getModel();
             model.addRow(new Object[]{
-                orderLatest.getOrderItems().get(j).getMenuItem(),
-                Integer.parseInt(orderLatest.getOrderItems().get(j).getMenuPrice())*orderLatest.getOrderItems().get(j).getQuantity(),
-                orderLatest.getOrderItems().get(j).getQuantity()
+                orderItems1.get(j).getMenuItem(),
+                Integer.parseInt(orderItems1.get(j).getMenuPrice())*orderLatest.getOrderItems().get(j).getQuantity(),
+                orderItems1.get(j).getQuantity()
             });
-//            orderItems.get(j).getMenuItem();
-//            orderItems.get(j).getMenuPrice();
-//            orderItems.get(j).getQuantity();
         }
         
     }//GEN-LAST:event_jTableRestaurantOrdersMouseClicked
@@ -322,15 +328,17 @@ public class ManageOrder extends javax.swing.JPanel {
         int selectedRow = jTableRestaurantOrders.getSelectedRow();
         DefaultTableModel model1 = (DefaultTableModel) jTableRestaurantOrders.getModel();
         String name = model1.getValueAt(selectedRow, 2).toString();
-        for(int i=0;i<restaurantOrders.size();i++){
-            if(restaurantOrders.get(i).getCustomer().getCustomerName().equals(name)){
-                customer = restaurantOrders.get(i).getCustomer();
-                restaurantOrders.get(i).setOrderstatus("Preparing order");
+        
+            for(int i=0;i<restaurantOrders.size();i++){
+                if(restaurantOrders.get(i).getCustomer().getCustomerName().equals(name)){
+                    customer = restaurantOrders.get(i).getCustomer();
+                    restaurantOrders.get(i).setOrderstatus("Order Accepted");
+                }
             }
-        }
-        ArrayList<Order> order = customer.getOrder();
-        order.get(order.size()-1).setOrderstatus("Order Accepted");
-        populateRestaurantOrders();
+            ArrayList<Order> order = customer.getOrder();
+            order.get(order.size()-1).setOrderstatus("Order Accepted");
+            populateRestaurantOrders();
+        
     }//GEN-LAST:event_jButton_acceptActionPerformed
 
     private void jButton_AssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AssignDeliveryManActionPerformed
