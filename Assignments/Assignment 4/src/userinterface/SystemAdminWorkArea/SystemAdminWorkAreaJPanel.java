@@ -5,6 +5,8 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 
 import Business.Organization;
@@ -36,17 +38,37 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
         ArrayList<Restaurant> restaurantList = ecosystem.getRestaurantDirectory().getRestaurantList();
+        ArrayList<Customer> customerList = ecosystem.getCustomerDirectory().getCustomerList();
+        ArrayList<DeliveryMan> deliverymanList = ecosystem.getDeliveryManDirectory().getDeliverymanList();
         Restaurant restaurant;
+        Customer customer;
+        DeliveryMan deliveryman;
         DefaultMutableTreeNode restaurants=new DefaultMutableTreeNode("Restaurants");
+        DefaultMutableTreeNode customers=new DefaultMutableTreeNode("Customers");
+        DefaultMutableTreeNode deliverymans=new DefaultMutableTreeNode("DeliveryMan");
         DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
         root.removeAllChildren();
         root.insert(restaurants, 0);
+        root.insert(customers, 1);
+        root.insert(deliverymans, 2);
         DefaultMutableTreeNode restaurantNode;
+        DefaultMutableTreeNode customerNode;
+        DefaultMutableTreeNode deliverymanNode;
         
         for(int i=0;i<restaurantList.size();i++){
             restaurant=restaurantList.get(i);
             restaurantNode=new DefaultMutableTreeNode(restaurant.getName());
             restaurants.insert(restaurantNode, i);
+        }
+        for(int i=0;i<customerList.size();i++){
+            customer=customerList.get(i);
+            customerNode=new DefaultMutableTreeNode(customer.getCustomerName());
+            customers.insert(customerNode, i);
+        }
+        for(int i=0;i<deliverymanList.size();i++){
+            deliveryman=deliverymanList.get(i);
+            deliverymanNode=new DefaultMutableTreeNode(deliveryman.getName());
+            deliverymans.insert(deliverymanNode, i);
         }
        // Add the code for draw your system structure shown by JTree
        

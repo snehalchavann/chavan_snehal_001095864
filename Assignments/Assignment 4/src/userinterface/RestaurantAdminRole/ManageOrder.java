@@ -298,6 +298,11 @@ public class ManageOrder extends javax.swing.JPanel {
         int selectedRow = jTableRestaurantOrders.getSelectedRow();
         DefaultTableModel model1 = (DefaultTableModel) jTableRestaurantOrders.getModel();
         String name = model1.getValueAt(selectedRow, 2).toString();
+        String status = model1.getValueAt(selectedRow, 1).toString();
+        if(status.equals("Order Delivered") || status.equals("Order Accepted") || status.equals("Out for Delivery")){
+            JOptionPane.showMessageDialog(null, "Order is accepted, cannot be deleted");
+            return;
+        }else{
         for(int i=0;i<restaurantOrders.size();i++){
             if(restaurantOrders.get(i).getCustomer().getCustomerName().equals(name)){
                 customer = restaurantOrders.get(i).getCustomer();
@@ -308,6 +313,7 @@ public class ManageOrder extends javax.swing.JPanel {
         ArrayList<Order> order = customer.getOrder();
         order.get(order.size()-1).setOrderstatus("Order Rejected");
         populateRestaurantOrders();
+        }
     }//GEN-LAST:event_jButton_rejectActionPerformed
 
     private void jButton_acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_acceptActionPerformed

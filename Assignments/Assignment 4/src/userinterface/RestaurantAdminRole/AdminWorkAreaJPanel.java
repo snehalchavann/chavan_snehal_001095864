@@ -4,8 +4,10 @@ package userinterface.RestaurantAdminRole;
 
 
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +26,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.user = user;
+        ArrayList<Restaurant> restaurantList = system.getRestaurantDirectory().getRestaurantList();
+        for(int i=0;i<restaurantList.size();i++){
+            if(restaurantList.get(i).getManager().getUsername().equals(user.getUsername())){
+                valueLabel.setText(restaurantList.get(i).getName());
+            }
+        }
 //        valueLabel.setText();
     }
     
@@ -82,7 +90,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
+
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        valueLabel.setText("s");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageRestaurantJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageRestaurantJButtonActionPerformed

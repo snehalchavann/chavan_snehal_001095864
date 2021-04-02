@@ -135,7 +135,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Customer");
 
-        valueLabel.setText("<value>");
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
 
         jTableShowRestaurants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

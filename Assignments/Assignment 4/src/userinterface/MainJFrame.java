@@ -65,8 +65,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        loginJButton.setBackground(new java.awt.Color(0, 0, 0));
-        loginJButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginJButton.setBackground(new java.awt.Color(255, 255, 255));
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
